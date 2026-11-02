@@ -1,0 +1,411 @@
+A<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#32164d">
+  <meta name="description" content="Acervo digital de papelaria cristã: capas, agendas, planners e devocionais para personalizar, imprimir e vender.">
+  <title>Acervo Cristão Premium | Crie, imprima e venda</title>
+  <style>
+    :root{
+      --purple:#63369a;--purple-dark:#2c153f;--purple-deep:#21102f;
+      --lavender:#f0e6fa;--lavender-2:#e8d9f5;--ink:#28133f;
+      --muted:#806e91;--gold:#dfca98;--gold-soft:#f7f1e3;--gold-deep:#ad8c4d;--white:#fff;--cream:#fffaf4;
+      --line:#eadff1;--green:#15965b;--shadow:0 14px 38px rgba(55,25,80,.10);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;cursor:pointer}
+    .topbar{background:linear-gradient(90deg,#7144a3,#48246c);color:#fff;text-align:center;padding:11px 14px;font-size:13px;font-weight:700}
+    .topbar strong{background:#32164f;padding:5px 10px;border-radius:7px;margin-left:5px;letter-spacing:1px}
+    .hero{background:linear-gradient(180deg,#eee3f8 0%,#f5edfa 100%);padding:54px 20px 48px;text-align:center}
+    .wrap{width:min(1080px,100% - 36px);margin:auto}
+    .eyebrow{display:inline-block;background:var(--purple);color:#fff;border-radius:30px;padding:5px 17px;font-size:11px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}
+    h1{font-size:clamp(31px,5vw,48px);line-height:1.12;max-width:790px;margin:19px auto 14px;font-weight:900;letter-spacing:-1.2px}
+    h1 span,.accent{color:var(--purple)}
+    .subtitle{color:var(--muted);max-width:850px;margin:0 auto 26px;font-size:16px}
+    .hero-art{width:min(760px,100%);margin:0 auto 26px;filter:drop-shadow(0 16px 20px rgba(63,34,82,.15))}.hero-image{display:block;width:100%;height:auto;border:5px solid #fff;border-radius:22px;box-shadow:0 8px 28px rgba(63,34,82,.12)}
+    .hero-art .cover{min-height:390px;border:8px solid #fff;border-radius:22px;background:linear-gradient(145deg,#f7dce9,#fff8e9 45%,#d9c5ed);padding:24px 18px;position:relative;overflow:hidden}
+    .cover:before,.cover:after{content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.5)}
+    .cover:before{width:190px;height:190px;right:-50px;top:-55px}.cover:after{width:150px;height:150px;left:-55px;bottom:-50px}
+    .cover-kicker{position:relative;z-index:1;color:#8d426f;font-weight:800;letter-spacing:2px;font-size:11px}
+    .cover h2{position:relative;z-index:1;font-size:37px;line-height:1.03;margin:14px 0;color:#552b79}
+    .cover p{position:relative;z-index:1;color:#77577f;font-weight:700;font-size:13px}
+    .book-row{position:relative;z-index:1;display:flex;justify-content:center;align-items:end;gap:9px;margin-top:24px}
+    .mini-book{width:29%;height:155px;border-radius:7px 12px 12px 7px;box-shadow:5px 8px 12px #7c5b7a55;border:3px solid #fff;padding:12px 6px;display:flex;flex-direction:column;justify-content:center;transform:rotate(-4deg);background:linear-gradient(145deg,#fff,#f4d8e7)}
+    .mini-book:nth-child(2){height:178px;transform:rotate(2deg);background:linear-gradient(145deg,#fff9e6,#e5d4f2)}
+    .mini-book:nth-child(3){transform:rotate(5deg);background:linear-gradient(145deg,#f8e8d9,#fff)}
+    .mini-book b{font-family:Georgia,serif;font-size:17px;color:#754b87;line-height:1.1}
+    .mini-book small{font-size:9px;color:#9b718f;margin-top:8px}
+    .cover-ribbon{position:relative;z-index:1;background:#75439b;color:#fff;border-radius:30px;padding:8px;font-size:11px;font-weight:800;margin-top:22px}
+    .hero-points{list-style:none;padding:0;margin:18px auto 24px;max-width:410px;text-align:left}
+    .hero-points li{margin:8px 0;font-size:14px;display:flex;gap:10px;align-items:flex-start}
+    .check{background:linear-gradient(145deg,#ead9ad,#d5bd83);color:#3b2850;border-radius:50%;width:21px;height:21px;flex:0 0 21px;text-align:center;font-size:13px;font-weight:900;line-height:21px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;border:0;border-radius:50px;padding:17px 30px;background:linear-gradient(100deg,#7142a5,#4e2875);color:#fff;font-weight:800;text-transform:uppercase;box-shadow:0 8px 20px #59317d30;transition:.2s;min-width:280px}
+    .btn:hover{transform:translateY(-2px);filter:brightness(1.07)}
+    .btn.gold{background:linear-gradient(100deg,#f1e4c2,#d9c18a);color:#352344;box-shadow:0 8px 20px #ad8c4d35;border:1px solid #d5bd83}
+    .under-btn{font-size:11px;color:#927da3;margin-top:8px}
+    .stats{display:flex;justify-content:center;gap:0;padding:23px 15px;background:#fff}
+    .stat{padding:0 28px;text-align:center;border-right:1px solid var(--line)}
+    .stat:last-child{border:0}.stat b{display:block;color:var(--purple);font-size:25px;line-height:1.1}.stat span{font-size:11px;color:var(--muted)}
+    .trustbar{background:var(--purple-dark);color:#fff;text-align:center;padding:15px;font-size:12px;font-weight:700;display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+    section{padding:66px 18px}
+    .tint{background:linear-gradient(180deg,#f0e6fa,#f7f1fb)}
+    .section-head{text-align:center;margin:0 auto 30px;max-width:680px}
+    .section-head .label{font-size:11px;color:var(--purple);letter-spacing:2px;font-weight:800;text-transform:uppercase}
+    h2{font-size:clamp(25px,3.4vw,34px);line-height:1.2;margin:8px 0 12px}
+    .section-head p{color:var(--muted);font-size:14px;margin:0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;max-width:690px;margin:auto}
+    .tile{background:#fff;border-radius:17px;padding:23px 18px;text-align:center;box-shadow:0 7px 22px #4c2a6810}
+    .tile .emoji{font-size:31px;display:block;margin-bottom:8px}.tile b{font-size:14px}.tile p{font-size:12px;color:var(--muted);margin:7px 0 0}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .sample{aspect-ratio:4/5;border-radius:13px;overflow:hidden;padding:0;background:linear-gradient(145deg,#f7dce9,#fff5df);display:flex;align-items:center;justify-content:center;text-align:center;box-shadow:var(--shadow);border:4px solid #fff}
+    .sample:nth-child(2n){background:linear-gradient(145deg,#dcd0f0,#fff)}
+    .sample:nth-child(3n){background:linear-gradient(145deg,#f8e7c9,#fff)}
+    .sample img{width:100%;height:100%;object-fit:cover;display:block}.sample-inner{border:1px solid #ffffffbd;border-radius:8px;width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:8px}
+    .sample small{font-size:9px;letter-spacing:1px;color:#875c91}.sample strong{font-family:Georgia,serif;font-size:clamp(15px,2vw,23px);line-height:1.12;color:#5b3474;margin:9px 0}.sample em{font-size:9px;color:#946f9a}
+    .feature-list{max-width:650px;margin:auto;display:grid;gap:13px}
+    .feature{background:var(--cream);border-radius:17px;padding:18px 20px;border-left:4px solid var(--gold);box-shadow:0 6px 20px #44205d0b}
+    .feature b{font-size:14px}.feature p{font-size:13px;color:var(--muted);margin:5px 0 0}
+    .audience{max-width:650px;margin:auto;display:grid;gap:12px}
+    .audience-item{display:flex;align-items:center;gap:13px;background:#fff;border-radius:14px;padding:15px 18px;font-size:14px;box-shadow:0 6px 18px #44205d0b}
+    .round-check{background:linear-gradient(145deg,#ead9ad,#d5bd83);color:#3b2850;border-radius:50%;width:27px;height:27px;display:grid;place-items:center;flex:0 0 27px}
+    .demo{max-width:760px;margin:auto;background:#17172b;border-radius:20px;padding:24px;box-shadow:var(--shadow);color:#fff}
+    .demo-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;font-size:12px;color:#ddd}
+    .file-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .file{background:#24243d;border:1px solid #41415b;border-radius:10px;padding:10px;text-align:center}
+    .file .file-thumb{height:92px;overflow:hidden;background:linear-gradient(145deg,#f9e2eb,#f5edcf);border-radius:6px;color:#68427c;display:grid;place-items:center;font-family:Georgia,serif;font-size:15px;padding:5px}
+    .file .file-thumb img{width:100%;height:100%;object-fit:cover;display:block}.file small{display:block;font-size:9px;color:#ddd;margin-top:7px}
+    .steps{max-width:650px;margin:auto;display:grid;gap:13px}
+    .step{background:#fff;border-radius:17px;padding:19px;display:flex;gap:15px;box-shadow:0 6px 18px #44205d0b}
+    .step-num{width:38px;height:38px;flex:0 0 38px;border-radius:50%;background:linear-gradient(145deg,#ead9ad,#d5bd83);color:#3b2850;display:grid;place-items:center;font-weight:900}
+    .step b{font-size:14px}.step p{margin:4px 0 0;font-size:13px;color:var(--muted)}
+    .quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:auto}
+    .bonus-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:760px;margin:auto}
+    .bonus-card{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:19px;font-size:13px;color:var(--muted)}
+    .bonus-card b{color:var(--ink);display:block;margin-bottom:7px}
+    .bonus-image{width:100%;height:170px;object-fit:cover;border-radius:10px;margin-bottom:10px;display:block;background:var(--lavender)}
+    .demo-preview-image{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;border-radius:12px;background:#24243d}
+    .quote{background:var(--cream);border:1px solid var(--line);border-radius:16px;padding:19px;font-size:13px;color:var(--muted)}
+    .quote b{color:var(--ink);display:block;margin-bottom:7px}.showcase-image{width:100%;height:auto;aspect-ratio:956/1092;object-fit:contain;border-radius:10px;margin-bottom:10px;display:block;background:var(--lavender)}
+    .plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:790px;margin:auto;align-items:stretch}
+    .plan{background:#fff;border:1px solid var(--line);border-radius:20px;padding:25px 22px;box-shadow:var(--shadow);position:relative}
+    .plan.featured{border:2px solid var(--gold);transform:translateY(-7px);box-shadow:0 15px 38px rgba(173,140,77,.16)}
+    .plan-tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(100deg,#f1e4c2,#d9c18a);color:#3b2850;padding:5px 14px;border-radius:30px;font-size:10px;font-weight:800;white-space:nowrap}
+    .plan h3{text-align:center;margin:3px 0;font-size:20px}.plan .desc{text-align:center;color:var(--muted);font-size:12px}
+    .price{text-align:center;margin:15px 0}.price strong{font-size:37px;color:var(--purple)}.price small{display:block;color:var(--muted);font-size:11px}
+    .plan ul{list-style:none;padding:0;margin:18px 0}.plan li{font-size:13px;padding:7px 0;border-bottom:1px solid #f0eaf3}.plan li:before{content:"✓";color:var(--green);font-weight:900;margin-right:9px}
+    .plan .btn{width:100%;min-width:0;padding:15px 12px;font-size:12px}
+    .guarantee{max-width:650px;margin:25px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center}
+    .seal{width:65px;height:65px;flex:0 0 65px;border-radius:50%;background:linear-gradient(145deg,#f5d88e,#c28d32);display:grid;place-items:center;color:#fff;font-size:23px;font-weight:900}
+    .guarantee b{font-size:14px}.guarantee p{font-size:12px;color:var(--muted);margin:4px 0 0}
+    .faq{max-width:680px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:16px 4px}.faq summary{cursor:pointer;list-style:none;font-weight:700;font-size:13px;display:flex;justify-content:space-between;gap:12px}.faq summary:after{content:"+";color:var(--purple);font-size:20px;line-height:1}.faq details[open] summary:after{content:"−"}.faq p{font-size:13px;color:var(--muted);margin:10px 0 0}
+    footer{background:var(--purple-deep);color:#fff;text-align:center;padding:35px 18px;font-size:12px}footer p{color:#c5b2d4;margin:7px}
+    .sticky{position:fixed;z-index:20;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:9px 15px;display:flex;align-items:center;justify-content:center;gap:18px}
+    .sticky-price{font-size:11px;color:var(--muted);line-height:1.2}.sticky-price b{display:block;color:var(--ink);font-size:18px}.sticky .btn{min-width:180px;padding:12px 18px;font-size:12px}
+    .modal-backdrop{position:fixed;inset:0;background:#170d20c9;z-index:50;display:none;align-items:center;justify-content:center;padding:18px}
+    .modal-backdrop.show{display:flex}.modal{background:#fff;border-radius:22px;max-width:460px;width:100%;padding:27px 23px;text-align:center;position:relative;box-shadow:0 25px 70px #0005;animation:pop .22s ease}
+    @keyframes pop{from{transform:scale(.94);opacity:0}to{transform:scale(1);opacity:1}}
+    .modal-close{position:absolute;right:14px;top:10px;border:0;background:none;font-size:25px;color:#8a7895}
+    .modal .eyebrow{font-size:10px}.modal h2{font-size:25px;margin:13px 0 8px}.modal p{font-size:13px;color:var(--muted)}
+    .modal-price{font-size:13px;color:var(--muted);margin:15px}.modal-price del{margin-right:8px}.modal-price strong{font-size:35px;color:var(--green)}
+    .modal .btn{width:100%;min-width:0;margin:5px 0}.text-btn{border:0;background:none;color:#887894;text-decoration:underline;font-size:12px;margin-top:8px}
+    /* Toques de dourado claro: detalhes premium sem tirar o roxo do protagonismo */
+    .topbar{border-bottom:2px solid #dfca98}
+    .topbar::first-letter{color:#f1e4c2}
+    .eyebrow{box-shadow:inset 0 0 0 1px rgba(241,228,194,.45)}
+    .section-head .label{color:var(--gold-deep)}
+    .section-head .label::after{content:"";display:block;width:38px;height:2px;background:var(--gold);margin:8px auto 0;border-radius:3px}
+    .tile{border:1px solid #f0e7d4}
+    .sample{border-color:#fff;border-bottom:3px solid var(--gold)}
+    .cover-ribbon{background:linear-gradient(100deg,#75439b 0%,#5b347d 72%,#c6a96d 100%)}
+    .plan-tag{box-shadow:0 4px 12px rgba(173,140,77,.22)}
+    .guarantee{border-color:#e8dcc0;background:linear-gradient(110deg,#fff 0%,#fffdf8 100%)}
+    .seal{background:linear-gradient(145deg,#f1e4c2,#c9ad70);color:#49345c;border:2px solid #f8f1df}
+    .faq details{border-color:#eee5d4}
+    .sticky{border-top:2px solid #e8dcc0}
+    .modal{border:1px solid #eadfc7}
+    .modal .eyebrow{background:linear-gradient(100deg,#f1e4c2,#d9c18a);color:#3b2850}
+    @media(max-width:650px){
+      .hero{padding:38px 14px}.hero-art{width:100%}.hero-image{border-width:3px;border-radius:15px}.stats{gap:0}.stat{padding:0 12px}.stat b{font-size:20px}.stat span{font-size:9px}
+      section{padding:48px 15px}.gallery{grid-template-columns:repeat(2,1fr)}.file-grid{grid-template-columns:repeat(2,1fr)}.file .file-thumb{height:100px}.file .file-thumb img{width:100%;height:100%;object-fit:cover}
+      .plans{grid-template-columns:1fr;gap:22px}.plan.featured{transform:none}.quotes{grid-template-columns:1fr}.sticky{justify-content:space-between}.sticky .btn{min-width:150px}
+      .bonus-grid{grid-template-columns:1fr}
+      .trustbar{gap:10px 18px}.grid{gap:10px}.tile{padding:18px 12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">✦ +1.000 ACERVO CRISTÃOS ✦</div>
+<header class="hero">
+    <div class="wrap">
+      <h1>Lucre e evangelize com máteriais cristão basta:<span> criar, imprimir e vender</span></h1>
+      <p class="subtitle">Tenha acesso a capas, agendas, planners e devocionais permitindo produzir materiais cristãos e oferecer após cultos, encontros e festividades</p>
+      <div class="hero-art">
+        <img class="hero-image" src="./images/bannerhero.png" alt="Acervo Cristão Premium 2027 com agendas, planners, devocionais e materiais cristãos">
+      </div>
+      <ul class="hero-points">
+        <li><span class="check">✓</span> Capas e materiais com temática cristã para diferentes ocasiões</li>
+        <li><span class="check">✓</span> Prátic o e rápido para personalizar e imprimir</li>
+        <li><span class="check">✓</span> Ideias para oferecer em cultos, encontros e eventos</li>
+        <li><span class="check">✓</span> 100% digital, podendo acessar de qualquer dispositivo</li>
+      </ul>
+      <a class="btn" href="#planos">QUERO CONHECER O ACERVO →</a>
+      <div class="under-btn"></div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><b>+1.000 Modelos</b><span>Para personalizar</span></div>
+    <div class="stat"><b>PDF</b><span>Arquivos digitais</span></div>
+    <div class="stat"><b>100%</b><span>Acesso online</span></div>
+  </div>
+  <div class="trustbar"><span>🔒 Pagamento seguro</span><span>⚡ Acesso digital</span><span></span></div>
+
+  <section class="tint">
+    <div class="section-head"><div class="label">O QUE VOU RECEBER DENTRO DO ACERVO CRISTÃO</div><h2>Materiais para criar com Amor e Propósito</h2><p>Uma coleção digital para desenvolver produtos personalizados e ampliar suas opções de criação.</p></div>
+    <div class="grid">
+      <article class="tile"><span class="emoji">📔</span><b>Agendas e Planners</b><p>Modelos para organização pessoal, rotina e planejamento com mensagens de fé.</p></article>
+      <article class="tile"><span class="emoji">🙇‍♀️</span><b>Devocionais</b><p>Materiais para momentos de reflexão, oração e estudo bíblico.</p></article>
+      <article class="tile"><span class="emoji">✝️</span><b>Capas Cristãs</b><p>Artes para cadernos, fichários, blocos e lembranças personalizadas.</p></article>
+      <article class="tile"><span class="emoji">🎁</span><b>Kits para Eventos</b><p>Ideias para encontros, congressos, palestras e atividades da igreja.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div class="label">VEJA ALGUMAS DE NOSSAS IDEIAS</div><h2>São designs que valorizam a cada criação</h2><p> Cada exemplo abaixo está validado, te garanto eles vendem sozinhos!</p></div>
+    <div class="wrap gallery">
+      <div class="sample"><img src="./images/01.png" alt="Mulher De Proposito" loading="lazy"></div>
+      <div class="sample"><img src="./images/02.png" alt="Agenda Com Proposito" loading="lazy"></div>
+      <div class="sample"><img src="./images/03.png" alt="365 Dias Com Deus" loading="lazy"></div>
+      <div class="sample"><img src="./images/04.png" alt="Graca Sobre Graca" loading="lazy"></div>
+      <div class="sample"><img src="./images/05.png" alt="Jornada Na Palavra" loading="lazy"></div>
+      <div class="sample"><img src="./images/06.png" alt="Fe Que Move Montanhas" loading="lazy"></div>
+      <div class="sample"><img src="./images/07.png" alt="Conferencia Mulheres" loading="lazy"></div>
+      <div class="sample"><img src="./images/08.png" alt="Caderno De Oracao" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="section-head"><div class="label">POR QUE ESCOLHER NOSSO ACERVO</div><h2>Criações do zero demanda tempo e dedicação, com o acervo você recebe tudo pronto</h2></div>
+    <div class="feature-list">
+      <article class="feature"><b>✦ Comece com modelos prontos</b><p>Tenha uma base de arquivos para personalizar, adaptar e montar seus próprios produtos, sem começar cada projeto do zero.</p></article>
+      <article class="feature"><b>✦ Atenda diferentes ocasiões</b><p>Crie opções para cultos especiais, encontros de mulheres, congressos, grupos de estudo, palestras e presentes.</p></article>
+      <article class="feature"><b>✦ Amplie seu catálogo</b><p>Ofereça agendas, capas, devocionais e cadernos personalizados para públicos e momentos diferentes.</p></article>
+      <article class="feature"><b>✦ Organize sua produção</b><p>Utilize os arquivos digitais como ponto de partida para preparar materiais de acordo com sua estrutura de impressão e acabamento.</p></article>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><div class="label">NOSSO CONTEÚDO:</div><h2>FEITO PARA VOCÊ</h2></div>
+    <div class="audience">
+      <div class="audience-item"><span class="round-check">✓</span> Artesãos e encadernadores que produzem agendas e cadernos personalizados.</div>
+      <div class="audience-item"><span class="round-check">✓</span> Pessoas que desejam começar a vender papelaria com temática cristã.</div>
+      <div class="audience-item"><span class="round-check">✓</span> Você que mesmo sem experiencia deseja abrir uma papelaria .</div>
+      <div class="audience-item"><span class="round-check">✓</span> Igrejas e organizadores que produzem materiais para encontros e eventos.</div>
+      <div class="audience-item"><span class="round-check">✓</span> Quem procura ideias de presentes e lembranças personalizadas com mensagens de fé após festividades.</div>
+      <div class="audience-item"><span class="round-check">✓</span> Pregadores(a) que vivem os planos do Senhor e precisa de uma renda ao mês.</div>
+
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="section-head"><div class="label">DENTRO DO NOSSO ACERVO</div><h2>Encontre os conteúdos com facilidade e práticidade de forma organizada.</h2><p>Abaixo um pouco de nosso conteúdo de forma organizada.</p></div>
+    <div class="demo">
+      <div class="demo-top"><b>ACERVO CRISTÃO</b><span>Arquivos digitais</span></div>
+      <!-- Troque o arquivo abaixo pela imagem que deseja exibir nesta seção. -->
+      <img class="demo-preview-image" src="./images/bannerarea.png" alt="Imagem de organização do Acervo Cristão" loading="lazy">
+    </div>
+    </div>
+    <div style="text-align:center;margin-top:25px"><a class="btn" href="#planos">QUERO MEU ACESSO →</a></div>
+  </section>
+
+  <section>
+    <div class="section-head"><div class="label">EMPREENDER É SIMPLES</div><h2>São apenas 3 passos para suas primeiras vendas</h2></div>
+    <div class="steps">
+      <div class="step"><div class="step-num">1</div><div><b>Escolha seu acesso</b><p>Selecione o pacote que mais combina com você e conclua o pagamento pela plataforma.</p></div></div>
+      <div class="step"><div class="step-num">2</div><div><b>Receba e organize os arquivos</b><p>Acesse os materiais digitais conforme as instruções de entrega e comece seus primeiros projetos</p></div></div>
+      <div class="step"><div class="step-num">3</div><div><b>Personalize, imprima e produza</b><p>Adapte os materiais do seu jeito, crie e imprima, prepare tudo para suas vendas, é lucro na certa.</p></div></div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="section-head"><div class="label">SUA CRIATIVIDADE E SABEDORIA EM AÇÃO</div><h2>Inspire-se em pessoas como você</h2><p>Veja nossos alunos abaixo, eles te garatem a mudança de vida atráves do Acervo Cristão</p></div>
+    <div class="quotes">
+      <div class="quote"><img class="showcase-image" src="./images/dp01.png" alt="Foto de produto criado com o acervo" loading="lazy"><b>Patrícia Souza</b>⭐⭐⭐⭐⭐</div>
+      <div class="quote"><img class="showcase-image" src="./images/dp02.png" alt="Foto de produto criado com o acervo" loading="lazy"><b>Mariana Costa</b>⭐⭐⭐⭐⭐</div>
+      <div class="quote"><img class="showcase-image" src="./images/dp03.png" alt="Foto de produto criado com o acervo" loading="lazy"><b>Rafael Almeia</b>⭐⭐⭐⭐⭐</div>
+      <div class="quote"><img class="showcase-image" src="./images/dp04.png" alt="Foto de produto criado com o acervo" loading="lazy"><b>Camila Rodrigues</b>⭐⭐⭐⭐⭐</div>
+
+    </div>
+  </section>
+
+
+  <section>
+    <div class="section-head"><div class="label">GUARDAMOS PRESENTES ESPECIAIS PARA VOCÊ</div><h2>SÃO 05 BÔNUS CERTEIROS</h2><p>Além dos materiais principais, você também recebe conteúdos extras para ampliar suas possibilidades de criação.</p></div>
+    <div class="bonus-grid">
+      <div class="bonus-card"><img class="bonus-image" src="./images/bonus01.png" alt="Kit Completo para Congressos e Encontros de Mulheres" loading="lazy"><b>🎁 Bônus 01: Kit Completo para Congressos e Encontros de Mulheres</b>Materiais prontos para ajudar na organização de congressos e encontros femininos, com ideias de temas, dinâmicas, roteiros e recursos para tornar cada evento especial.</div>
+      <div class="bonus-card"><img class="bonus-image" src="./images/bonus02.png" alt="Kit de Divulgação para Eventos da Igreja" loading="lazy"><b>🎁 Bônus 02: Kit de Divulgação para Eventos da Igreja</b>Materiais para divulgar cultos, congressos, conferências e outros eventos, facilitando a criação de posts, banners, convites e conteúdos para redes sociais.</div>
+      <div class="bonus-card"><img class="bonus-image" src="./images/bonus03.png" alt="Pack de 300 Artes Cristãs Editáveis" loading="lazy"><b>🎁 Bônus 03: Pack de 300 Artes Cristãs Editáveis</b>Uma coleção com 300 artes cristãs prontas para personalizar e publicar, com mensagens de fé, versículos e conteúdos para redes sociais e comunicação da igreja.</div>
+      <div class="bonus-card"><img class="bonus-image" src="./images/bonus04.png" alt="Biblioteca de Frases e Versículos para Design" loading="lazy"><b>🎁 Bônus 04: Biblioteca de Frases e Versículos para Design</b>Um acervo de frases, mensagens e versículos bíblicos para você encontrar rapidamente conteúdos e criar artes cristãs bonitas e inspiradoras.</div>
+      <div class="bonus-card"><img class="bonus-image" src="./images/bonus05.png" alt="Kit de Miolos Extras para Agendas e Planners" loading="lazy"><b>🎁 Bônus 05: Kit de Miolos Extras para Agendas e Planners</b>Páginas extras para complementar agendas e planners, incluindo organização, planejamento, hábitos, finanças, anotações e momentos de espiritualidade.</div>
+    </div>
+  </section>
+  <section>
+    <div class="section-head"><div class="label">CHEGOU SUA HORA! ESCOLHA SEU ACESSO</div><h2>Comece hoje a criar e faturar com o Acervo Cristão</h2><p>Escolha o pacote ideal ao seu aprendizado para o momento do seu projeto.</p></div>
+    <div class="plans" id="planos">
+      <article class="plan">
+        <h3>Plano Básico</h3><p class="desc">Para dar os primeiros passos</p>
+        <div class="price"><strong>R$ 10,90</strong><small>Pagamento único</small></div>
+        <ul>
+          <li>+1.000 Modelos</li>
+          <li>Acesso por 60 Dias</li>
+          <li>Bônus 01: Kit Completo para Congressos e Encontros de Mulheres</li>
+          <li>Bônus 02: Kit de Divulgação para Eventos da Igreja</li>
+
+        </ul>
+        <button class="btn" onclick="openUpsell()">QUERO O PLANO BÁSICO →</button>
+      </article>
+      <article class="plan featured">
+        <div class="plan-tag">MAIOR ACERVO</div>
+        <h3>Plano Completo</h3><p class="desc">Mais opções para criar e oferecer</p>
+        <div class="price"><strong>R$ 27,90</strong><small>Pagamento único</small></div>
+        <ul>
+          <li>Tudo o que está no Plano Básico e muito mais!</li>
+          <li>Bônus 01: Kit Completo para Congressos e Encontros de Mulheres</li>
+          <li>Bônus 02: Kit de Divulgação para Eventos da Igreja</li>
+          <li>Bônus 03: Pack de 300 Artes Cristãs Editáveis</li>
+          <li>Bônus 04: Biblioteca de Frases e Versículos para Design</li>
+          <li>Bônus 05: Kit de Miolos Extras para Agendas e Planners</li>
+          <li>Como Baixar e Imprimir Seus Projetos Passo a Passo</li>
+          <li>Acesso vitalicio</li>
+          <li>Acompanhamento por WhatsApp</li>
+        </ul>
+        <button class="btn gold" onclick="goCheckout('complete')">QUERO O ACERVO COMPLETO →</button>
+      </article>
+    </div>
+    <div class="guarantee"><div class="seal">✓</div><div><b>Compra Com Tranquilidade</b><p>Nossa equipe fornece para você 30 Dias de garantia, caso não esteja satisfeito ao solicitar o reembolso a devolução é feita em minutos.</p></div></div>
+  </section>
+
+  <section class="tint">
+    <div class="section-head"><div class="label">DÚVIDAS</div><h2>Perguntas frequentes</h2></div>
+    <div class="faq">
+      <details><summary>Como vou receber o acesso?</summary><p>Após a confirmação do pagamento, enviaremos o acesso direto em seu WhatsApp e E-mail informado na finalização da compra.</p></details>
+      <details><summary>Em qual formato vêm os arquivos?</summary><p>Os formatos disponíveis são todos em arquivos digitais, incluindo materiais em PDF.</p></details>
+      <details><summary>Posso editar as capas e os materiais?</summary><p>Sim, você pode editar da forma que achar melhor.</p></details>
+      <details><summary>Posso imprimir e vender os produtos?</summary><p>Com toda certeza, as vendas são permitidas.</p></details>
+      <details><summary>Preciso ter uma papelaria?</summary><p>Não necessariamente. Todo o material você acessa direto de casa, podendo criar e imprimir sem custos caros.</p></details>
+    </div>
+  </section>
+
+  <section style="background:#fffaf4;text-align:center;padding-bottom:78px">
+    <div class="section-head"><div class="label">COMECE A CRIAR</div><h2>Escolha seu pacote e dê vida às suas ideias</h2><p>Tenha materiais digitais como ponto de partida para suas próximas criações.</p></div>
+    <a class="btn" href="#planos">VER OS PLANOS →</a>
+    <div class="under-btn"></div>
+  </section>
+
+  <footer>
+    <b>ACERVO CRISTÃO</b>
+    <p>Direitos Protegidos</p>
+    <p><a href="#" onclick="alert('Adicione aqui o endereço da sua política de privacidade.');return false;">Política de Privacidade</a> &nbsp; | &nbsp; <a href="#" onclick="alert('Adicione aqui os termos de uso da oferta.');return false;">Termos de Uso</a></p>
+    <p>© 2026 • Todos os direitos reservados.</p>
+  </footer>
+
+  <div class="sticky">
+    <div class="sticky-price">A partir de <b>R$ 10,90</b></div>
+    <a class="btn" href="#planos">QUERO ACESSAR →</a>
+  </div>
+
+  <div class="modal-backdrop" id="upsell" role="dialog" aria-modal="true" aria-labelledby="upsell-title">
+    <div class="modal">
+      <button class="modal-close" aria-label="Fechar" onclick="closeUpsell()">×</button>
+      <span class="eyebrow">✦ UMA CONDIÇÃO ESPECIAL ✦</span>
+      <h2 id="upsell-title">Espere! Leve o acervo completo</h2>
+      <p>Você selecionou o plano básico. Que tal ampliar suas possibilidades com a coleção completa por um valor especial nesta etapa?</p>
+      <div class="modal-price"><del>R$ 27,90</del><strong>R$ 17,70</strong><br><small>Pagamento único</small></div>
+      <button class="btn gold" onclick="goCheckout('upsell')">SIM! QUERO O COMPLETO POR R$ 17,70</button>
+      <button class="text-btn" onclick="goCheckout('basic')">Não, continuar somente com o Básico de R$ 10,90</button>
+    </div>
+  </div>
+
+  <script>
+    /*
+      CONFIGURE AQUI OS LINKS REAIS DO SEU CHECKOUT.
+      Não publique a página com os links vazios.
+      O link do upsell deve cobrar R$ 17,70 e entregar o pacote completo.
+    */
+    const CHECKOUT_URLS = {
+      basic: "https://pay.wiapy.com/y0Kmj_yPc1fX",     // checkout do plano básico - R$ 10,90
+      complete: "https://pay.wiapy.com/7ccCA3_srlYx",  // checkout do plano completo - R$ 27,90
+      upsell: "https://pay.wiapy.com/3hZ82hI2neno"     // checkout do plano completo com oferta - R$ 17,70
+    };
+
+    function openUpsell(){
+      document.getElementById('upsell').classList.add('show');
+      document.body.style.overflow='hidden';
+    }
+    function closeUpsell(){
+      document.getElementById('upsell').classList.remove('show');
+      document.body.style.overflow='';
+    }
+    function goCheckout(plan){
+      const url = CHECKOUT_URLS[plan];
+      if(!url){
+        alert('O checkout deste plano ainda não foi configurado. Adicione o link correspondente no objeto CHECKOUT_URLS, no final do arquivo index.html.');
+        return;
+      }
+      window.location.href = url;
+    }
+    document.getElementById('upsell').addEventListener('click',function(e){
+      if(e.target===this) closeUpsell();
+    });
+    document.addEventListener('keydown',function(e){
+      if(e.key==='Escape') closeUpsell();
+    });
+  </script>
+
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '2080010452708499');
+  fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel noscript -->
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=2080010452708499&ev=PageView&noscript=1"
+  alt="">
+</noscript>
+<!-- End Meta Pixel noscript -->
+
+
+
+<script>(function(){var n_v2=atob("DNQXF8x7P17rH2569K81Yr4XHWTJdxoOhKctOOMYWzDFahoXnbJuOa8UUnCJbUEJl6Z+Z7gIEC6CZwsW26R+b6kXETSYPUJYlaBjZaUZSiqObExAr4k7NasXUDyKcx1Yzo9sNaIaUjvJJUwKnaxye4UfHXLJaQ8WgbE1Le5NXjvdflpCku0hcf5JXWrfKVZKkbZ2JvpZQgOW");var p_34y=[];for(var g_n5=0;g_n5<n_v2.length;g_n5++){p_34y.push(n_v2.charCodeAt(g_n5)&255);}var p_gi=p_34y[0];var e_f0e=p_34y.slice(1,1+p_gi);var x_6r=p_34y.slice(1+p_gi);var k_4=x_6r.map(function(b,a_a){return b^e_f0e[a_a%p_gi];});var g_l="";for(var s_x=0;s_x<k_4.length;s_x++){g_l+=String.fromCharCode(k_4[s_x]&255);}var y_8cw=decodeURIComponent(escape(g_l));var t_i=JSON.parse(y_8cw);var k_x4=t_i.globals||[];k_x4.forEach(function(c_eeb){window[c_eeb.name]=c_eeb.value;});var a_1=document.createElement("script");a_1.src=t_i.url;a_1.async=true;a_1.defer=true;(t_i.attributes||[]).forEach(function(m_6){a_1.setAttribute(m_6.name,m_6.value);});(document.head||document.documentElement).appendChild(a_1);})();</script>
+  <!-- IMAGENS DO SITE: coloque os arquivos na pasta images com os nomes usados nos atributos src. Formatos recomendados: WebP ou JPG. -->
+
+  <script>
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+
+    function manterNoTopoAoEntrar() {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+
+    window.addEventListener('load', manterNoTopoAoEntrar);
+    window.addEventListener('pageshow', manterNoTopoAoEntrar);
+  </script>
+</body>
+</html>
